@@ -7,6 +7,7 @@ public class View implements java.util.Observer {
     Controller controller;
     Model model;
     private JPanel panel;
+    private JSlider slider1;
 
     public void setController(Controller controller) {
         this.controller = controller;
