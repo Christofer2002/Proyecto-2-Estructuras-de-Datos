@@ -3,7 +3,6 @@ package arbol;
 
 import javax.swing.*;
 
-import arbol.presentation.arbolBinario.DrawTree;
 import arbol.presentation.arbolBinario.Model;
 import arbol.presentation.arbolBinario.View;
 
