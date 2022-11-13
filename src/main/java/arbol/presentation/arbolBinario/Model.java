@@ -1,6 +1,22 @@
 package arbol.presentation.arbolBinario;
 
+import java.util.List;
+
 public class Model extends java.util.Observable {
+
+    public DrawTree getArbol() {
+        return arbol;
+    }
+
+    public void setArbol(DrawTree arbol) {
+        this.arbol = arbol;
+    }
+
+    DrawTree arbol;
+
+    public Model() {
+        arbol = null;
+    }
     public void addObserver(java.util.Observer o) {
         super.addObserver(o);
         this.commit();
@@ -10,4 +26,5 @@ public class Model extends java.util.Observable {
         this.setChanged();
         this.notifyObservers();
     }
+
 }

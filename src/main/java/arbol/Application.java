@@ -2,38 +2,32 @@ package arbol;
 
 
 import javax.swing.*;
-import arbol.presentation.principal.Controller;
+
+import arbol.presentation.arbolBinario.DrawTree;
+import arbol.presentation.arbolBinario.Model;
+import arbol.presentation.arbolBinario.View;
 
 public class Application {
 
     public static void main(String[] args) {
-        try { UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");}
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");}
         catch (Exception ex) {};
 
-        arbol.presentation.arbolBinario.View viewArbol = new arbol.presentation.arbolBinario.View();
-        arbol.presentation.arbolBinario.Model modelArbol = new arbol.presentation.arbolBinario.Model();
-        arbol.presentation.arbolBinario.Controller controllerArbol = new arbol.presentation.arbolBinario.Controller(viewArbol, modelArbol);
-        ARBOL = controllerArbol;
-
-        arbol.presentation.principal.View viewPrincipal = new arbol.presentation.principal.View();
-        arbol.presentation.principal.Model modelPrincipal = new arbol.presentation.principal.Model();
-        arbol.presentation.principal.Controller controllerPrincipal = new arbol.presentation.principal.Controller(viewPrincipal, modelPrincipal);
-        PRINCIPAL = controllerPrincipal;
-
-        viewPrincipal.getPanel().add("Arbol Binario",viewArbol.getPanel());
-
         window = new JFrame();
-        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setTitle("Arbol Binario");
-        window.setVisible(true);
 
-        PRINCIPAL.show();
+        Model model= new Model();
+        View view = new View();
+        arbol.presentation.arbolBinario.Controller controller = new arbol.presentation.arbolBinario.Controller(view, model);
+        window.setSize(750,500);
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
+        window.setTitle("Arbol Binario");
+
+        window.setContentPane(view.getPanel());
+        window.setVisible(true);
     }
 
     public static JFrame window;
 
-    public static arbol.presentation.principal.Controller PRINCIPAL;
-
-    public static arbol.presentation.arbolBinario.Controller ARBOL;
 }
