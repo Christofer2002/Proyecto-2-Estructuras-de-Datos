@@ -10,6 +10,8 @@ public class DrawTree extends JPanel {
     private int ancho;
     private final int finalX;
     private final int finalY;
+    //Color
+    private Color color;
 
     public DrawTree(int comienzoX, int comienzoY, int finalX, int finalY, int nivel) {
         this.comienzoX = comienzoX;
@@ -30,18 +32,18 @@ public class DrawTree extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        int finalNivelRama1X, finalNivelRama1Y, finalNivelRama2X, finalNivelRama2Y;
         g.setColor(Color.GREEN);
         Graphics2D g2D = (Graphics2D) g;
         g2D.setStroke(new BasicStroke(4));
         if(nivel == 0){
             g2D.drawLine(comienzoX, comienzoY, finalX, finalY);
-        }else if(nivel == 1){
+        }else if(nivel == 1) {
             g2D.drawLine(comienzoX, comienzoY, finalX, finalY);
             g2D.setStroke(new BasicStroke(2));
             g2D.drawLine(finalX, finalY, 200, 218);
             g2D.drawLine(finalX, finalY, comienzoX, 175);
             g2D.drawLine(finalX, finalY, 292, 219);
         }
-
     }
 }

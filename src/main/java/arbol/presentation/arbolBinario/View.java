@@ -13,6 +13,12 @@ public class View implements java.util.Observer {
     private JPanel panel;
     private JSpinner spinnerNiveles;
     private JPanel panelArbol;
+    private JLabel colores;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JSlider slider1;
 
     public void setController(Controller controller) {
         this.controller = controller;

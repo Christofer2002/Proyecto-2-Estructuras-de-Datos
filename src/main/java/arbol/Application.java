@@ -22,7 +22,7 @@ public class Application {
         window.setSize(750,500);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window.setLocationRelativeTo(null);
-        window.setTitle("Arbol Binario");
+        window.setTitle("Proyecto #2 - Estructuras de Datos");
 
         window.setContentPane(view.getPanel());
         window.setVisible(true);

@@ -1,7 +1,5 @@
 package arbol.presentation.arbolBinario;
 
-import java.util.List;
-
 public class Model extends java.util.Observable {
 
     public DrawTree getArbol() {
