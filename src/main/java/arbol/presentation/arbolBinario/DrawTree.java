@@ -2,17 +2,19 @@ package arbol.presentation.arbolBinario;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DrawTree extends JPanel {
     private int puntoInicialX;
     private int puntoInicialY;
     private int angulo;
     private int profundidad;
-    private Color color;
+    private List<Color> color;
 
     private double altura;
 
-    public DrawTree(int puntoInicialX, int puntoInicialY, Color color, int angulo , int profundidad, double altura) {
+    public DrawTree(int puntoInicialX, int puntoInicialY, List<Color> color, int angulo , int profundidad, double altura) {
         this.puntoInicialX = puntoInicialX;
         this.puntoInicialY = puntoInicialY;
         this.color = color;
@@ -24,7 +26,7 @@ public class DrawTree extends JPanel {
     public DrawTree(){
         this.puntoInicialX = 0;
         this.puntoInicialY = 0;
-        this.color = Color.GREEN;
+        this.color = new ArrayList<>();
         this.angulo = 0;
         this.profundidad = 0;
         this.altura = 5;
@@ -38,7 +40,11 @@ public class DrawTree extends JPanel {
     }
     public void drawTreeRecursive(Graphics2D g, int puntoInicialX, int puntoInicialY, int angulo, int profundidad){
         if(profundidad == 0) return;
-        g.setColor(color);
+        for (int i = 0; i < color.size(); i++) {
+            if(i+1 == profundidad){
+                g.setColor(color.get(i));
+            }
+        }
         g.setStroke(new BasicStroke(1.5f));
         int x2 = puntoInicialX + (int) (Math.cos(Math.toRadians(angulo)) * profundidad * altura);
         int y2 = puntoInicialY + (int) (Math.sin(Math.toRadians(angulo)) * profundidad * altura);

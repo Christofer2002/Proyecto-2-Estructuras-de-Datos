@@ -1,6 +1,7 @@
 package arbol.presentation.arbolBinario;
 
 import java.awt.*;
+import java.util.List;
 
 public class Model extends java.util.Observable {
 
@@ -20,17 +21,18 @@ public class Model extends java.util.Observable {
 
     double altura = 15;
 
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
 
     double angulo = -90;
 
-    Color color;
+    public List<Color> getColor() {
+        return color;
+    }
+
+    public void setColor(List<Color> color) {
+        this.color = color;
+    }
+
+    List<Color> color;
 
     public Model() {
         arbol = null;
