@@ -16,7 +16,7 @@ public class Controller {
 
     public void drawTree(int value) {
         DrawTree arbol = new DrawTree();
-        arbol = new DrawTree(250, 350, 250, 250, value);
+        arbol = new DrawTree(250, 350, 250, 250, value, model.getColor());
         model.setArbol(arbol);
     }
 

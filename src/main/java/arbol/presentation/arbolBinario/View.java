@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Observable;
@@ -17,12 +19,16 @@ public class View implements java.util.Observer {
     private JSpinner spinnerNiveles;
     private JPanel panelArbol;
     private JLabel colores;
-    private JButton button1;
+    private JButton buttonColor1;
     private JButton button2;
     private JButton button3;
     private JButton button4;
     private JSlider slider1;
     private JSlider sliderAngulo;
+
+    private JColorChooser colorChooser;
+
+    private JPanel panelColor;
 
     public void setController(Controller controller) {
         this.controller = controller;
@@ -56,6 +62,17 @@ public class View implements java.util.Observer {
             @Override
             public void mouseReleased(MouseEvent e) {
                 angulo = sliderAngulo.getValue();
+            }
+        });
+        buttonColor1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                colorChooser = new JColorChooser();
+                Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
+                model.setColor(color);
+                buttonColor1.setBackground(color);
+                controller.drawTree((int) spinnerNiveles.getValue());
+                controller.commit();
             }
         });
     }

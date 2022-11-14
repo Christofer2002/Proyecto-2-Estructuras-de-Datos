@@ -1,5 +1,7 @@
 package arbol.presentation.arbolBinario;
 
+import java.awt.*;
+
 public class Model extends java.util.Observable {
 
     public DrawTree getArbol() {
@@ -11,6 +13,16 @@ public class Model extends java.util.Observable {
     }
 
     DrawTree arbol;
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    Color color;
 
     public Model() {
         arbol = null;
