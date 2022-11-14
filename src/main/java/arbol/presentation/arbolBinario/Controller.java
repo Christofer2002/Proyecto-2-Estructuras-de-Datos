@@ -14,9 +14,8 @@ public class Controller {
         view.setModel(model);
     }
 
-    public void drawTree(int value) {
-        DrawTree arbol = new DrawTree();
-        arbol = new DrawTree(250, 350, 250, 250, value, model.getColor());
+    public void drawTree(int profundidad, DrawTree arbol) {
+        arbol = new DrawTree(400, 500, model.getColor(), (int) model.getAngulo(), profundidad+1, model.getAltura());
         model.setArbol(arbol);
     }
 

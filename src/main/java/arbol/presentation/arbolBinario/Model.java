@@ -14,6 +14,12 @@ public class Model extends java.util.Observable {
 
     DrawTree arbol;
 
+    public double getAltura() {
+        return altura;
+    }
+
+    double altura = 15;
+
     public Color getColor() {
         return color;
     }
@@ -21,6 +27,8 @@ public class Model extends java.util.Observable {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    double angulo = -90;
 
     Color color;
 
@@ -37,4 +45,15 @@ public class Model extends java.util.Observable {
         this.notifyObservers();
     }
 
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setAngulo(int angulo) {
+        this.angulo = angulo;
+    }
+
+    public double getAngulo() {
+        return angulo;
+    }
 }

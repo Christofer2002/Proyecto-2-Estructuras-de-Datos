@@ -1,6 +1,5 @@
 package arbol;
 
-
 import javax.swing.*;
 
 import arbol.presentation.arbolBinario.Model;
@@ -18,11 +17,10 @@ public class Application {
         Model model= new Model();
         View view = new View();
         arbol.presentation.arbolBinario.Controller controller = new arbol.presentation.arbolBinario.Controller(view, model);
-        window.setSize(750,500);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window.setLocationRelativeTo(null);
         window.setTitle("Proyecto #2 - Estructuras de Datos");
-
         window.setContentPane(view.getPanel());
         window.setVisible(true);
     }

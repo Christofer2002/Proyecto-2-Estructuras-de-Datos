@@ -4,48 +4,47 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DrawTree extends JPanel {
-    private int nivel;
-    private final int comienzoX;
-    private final int comienzoY;
-    private int ancho;
-    private final int finalX;
-    private final int finalY;
-    //Color
+    private int puntoInicialX;
+    private int puntoInicialY;
+    private int angulo;
+    private int profundidad;
     private Color color;
 
-    public DrawTree(int comienzoX, int comienzoY, int finalX, int finalY, int nivel, Color color) {
-        this.comienzoX = comienzoX;
-        this.comienzoY = comienzoY;
-        this.finalX = finalX;
-        this.finalY = finalY;
-        this.nivel = nivel;
+    private double altura;
+
+    public DrawTree(int puntoInicialX, int puntoInicialY, Color color, int angulo , int profundidad, double altura) {
+        this.puntoInicialX = puntoInicialX;
+        this.puntoInicialY = puntoInicialY;
         this.color = color;
+        this.angulo = angulo;
+        this.profundidad = profundidad;
+        this.altura = altura;
     }
 
     public DrawTree(){
-        this.comienzoX = 0;
-        this.comienzoY = 0;
-        this.finalX = 0;
-        this.finalY = 0;
-        this.nivel = 0;
+        this.puntoInicialX = 0;
+        this.puntoInicialY = 0;
         this.color = Color.GREEN;
+        this.angulo = 0;
+        this.profundidad = 0;
+        this.altura = 5;
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        int finalNivelRama1X, finalNivelRama1Y, finalNivelRama2X, finalNivelRama2Y;
-        g.setColor(color);
         Graphics2D g2D = (Graphics2D) g;
-        g2D.setStroke(new BasicStroke(4));
-        if(nivel == 0){
-            g2D.drawLine(comienzoX, comienzoY, finalX, finalY);
-        }else if(nivel == 1) {
-            g2D.drawLine(comienzoX, comienzoY, finalX, finalY);
-            g2D.setStroke(new BasicStroke(2));
-            g2D.drawLine(finalX, finalY, 200, 218);
-            g2D.drawLine(finalX, finalY, comienzoX, 175);
-            g2D.drawLine(finalX, finalY, 292, 219);
-        }
+        drawTreeRecursive(g2D, puntoInicialX, puntoInicialY, angulo, profundidad);
+    }
+    public void drawTreeRecursive(Graphics2D g, int puntoInicialX, int puntoInicialY, int angulo, int profundidad){
+        if(profundidad == 0) return;
+        g.setColor(color);
+        g.setStroke(new BasicStroke(1.5f));
+        int x2 = puntoInicialX + (int) (Math.cos(Math.toRadians(angulo)) * profundidad * altura);
+        int y2 = puntoInicialY + (int) (Math.sin(Math.toRadians(angulo)) * profundidad * altura);
+        g.drawLine(puntoInicialX, puntoInicialY, x2, y2);
+        drawTreeRecursive(g, x2, y2, angulo - 20, profundidad - 1);
+        drawTreeRecursive(g, x2, y2, angulo, profundidad - 1);
+        drawTreeRecursive(g, x2, y2, angulo + 20, profundidad - 1);
     }
 }

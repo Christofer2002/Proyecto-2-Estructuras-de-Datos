@@ -88,6 +88,7 @@
         </constraints>
         <properties>
           <orientation value="1"/>
+          <value value="15"/>
         </properties>
       </component>
       <component id="c2198" class="javax.swing.JSlider" binding="sliderAngulo">
@@ -96,6 +97,7 @@
         </constraints>
         <properties>
           <orientation value="1"/>
+          <value value="15"/>
         </properties>
       </component>
       <component id="ee1f1" class="javax.swing.JSlider" default-binding="true">
@@ -104,6 +106,7 @@
         </constraints>
         <properties>
           <orientation value="1"/>
+          <value value="15"/>
         </properties>
       </component>
       <component id="174c5" class="javax.swing.JSlider" default-binding="true">
@@ -112,14 +115,17 @@
         </constraints>
         <properties>
           <orientation value="1"/>
+          <value value="15"/>
         </properties>
       </component>
-      <component id="14e70" class="javax.swing.JSlider" default-binding="true">
+      <component id="14e70" class="javax.swing.JSlider" binding="sliderAltura">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <orientation value="1"/>
+          <value value="15"/>
+          <valueIsAdjusting value="false"/>
         </properties>
       </component>
     </children>

@@ -4,10 +4,9 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Observable;
 
 public class View implements java.util.Observer {
@@ -15,7 +14,6 @@ public class View implements java.util.Observer {
     Model model;
     private JPanel panel;
 
-    private int angulo;
     private JSpinner spinnerNiveles;
     private JPanel panelArbol;
     private JLabel colores;
@@ -25,6 +23,9 @@ public class View implements java.util.Observer {
     private JButton button4;
     private JSlider slider1;
     private JSlider sliderAngulo;
+    private JSlider sliderAltura;
+
+    DrawTree arbol;
 
     private JColorChooser colorChooser;
 
@@ -32,7 +33,8 @@ public class View implements java.util.Observer {
 
     public void setController(Controller controller) {
         this.controller = controller;
-        controller.drawTree((int) spinnerNiveles.getValue());
+        arbol = new DrawTree();
+        controller.drawTree((int) spinnerNiveles.getValue(), arbol);
     }
 
     public void setModel(Model model) {
@@ -52,7 +54,7 @@ public class View implements java.util.Observer {
         initComponents();
           ChangeListener listener = new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                controller.drawTree((int) spinnerNiveles.getValue());
+                controller.drawTree((int) spinnerNiveles.getValue(), arbol);
                 controller.commit();
             }
         };
@@ -61,7 +63,7 @@ public class View implements java.util.Observer {
         sliderAngulo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
-                angulo = sliderAngulo.getValue();
+                model.setAngulo(sliderAngulo.getValue());
             }
         });
         buttonColor1.addActionListener(new ActionListener() {
@@ -71,15 +73,26 @@ public class View implements java.util.Observer {
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
                 model.setColor(color);
                 buttonColor1.setBackground(color);
-                controller.drawTree((int) spinnerNiveles.getValue());
+                controller.drawTree((int) spinnerNiveles.getValue(), arbol);
                 controller.commit();
             }
         });
+
+        sliderAltura.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                model.setAltura(sliderAltura.getValue());
+                controller.drawTree((int) spinnerNiveles.getValue(), arbol);
+                controller.commit();
+            }
+        });
+
     }
     private void initComponents() {
         //SpinnerNiveles max 8
         spinnerNiveles.setModel(new SpinnerNumberModel(0, 0, 8, 1));
         panelArbol.setLayout(new BorderLayout());
+
     }
 
     @Override
