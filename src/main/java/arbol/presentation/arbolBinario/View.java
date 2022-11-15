@@ -21,7 +21,7 @@ public class View implements java.util.Observer {
     private JButton btnColorNivel1;
     private JButton btnColorNivel2;
     private JButton btnColorNivel3;
-    private JSlider slider1;
+    private JSlider sliderMoverRamas;
     private JSlider sliderAngulo;
     private JSlider sliderAltura;
     private JButton btnColorNivel4;
@@ -221,6 +221,14 @@ public class View implements java.util.Observer {
             }
         });
 
+        sliderMoverRamas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                model.setMoverRamas(sliderMoverRamas.getValue());
+                controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
+                controller.commit();
+            }
+        });
     }
     private void initComponents() {
         //SpinnerNiveles max 8

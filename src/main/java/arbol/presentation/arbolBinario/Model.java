@@ -34,6 +34,16 @@ public class Model extends java.util.Observable {
 
     List<Color> color;
 
+    public double getMoverRamas() {
+        return moverRamas;
+    }
+
+    public void setMoverRamas(double moverRamas) {
+        this.moverRamas = moverRamas;
+    }
+
+    private double moverRamas;
+
     public Model() {
         arbol = null;
     }

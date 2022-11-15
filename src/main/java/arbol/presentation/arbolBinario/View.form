@@ -113,13 +113,15 @@
           </component>
         </children>
       </grid>
-      <component id="bad3a" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+      <component id="bad3a" class="javax.swing.JSlider" binding="sliderMoverRamas">
         <constraints>
           <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <maximum value="50"/>
+          <minimum value="0"/>
           <orientation value="1"/>
-          <value value="15"/>
+          <value value="0"/>
         </properties>
       </component>
       <component id="c2198" class="javax.swing.JSlider" binding="sliderAngulo">
