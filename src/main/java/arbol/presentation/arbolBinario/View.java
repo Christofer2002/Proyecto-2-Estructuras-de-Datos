@@ -63,7 +63,6 @@ public class View implements java.util.Observer {
           ChangeListener listener = new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         };
 
@@ -83,7 +82,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel0.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -100,7 +98,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel1.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -117,7 +114,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel2.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -134,7 +130,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel3.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -151,7 +146,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel4.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -168,7 +162,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel5.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -185,7 +178,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel6.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -202,7 +194,6 @@ public class View implements java.util.Observer {
                 }
                 btnColorNivel7.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         });
 
@@ -211,7 +202,6 @@ public class View implements java.util.Observer {
             public void stateChanged(ChangeEvent e) {
                 model.setAltura(sliderAltura.getValue());
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         };
 
@@ -221,7 +211,6 @@ public class View implements java.util.Observer {
             public void stateChanged(ChangeEvent e) {
                 model.setMoverRamas(sliderMoverRamas.getValue());
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         };
         sliderMoverRamas.addChangeListener(listenerMoverRamas);
@@ -230,7 +219,6 @@ public class View implements java.util.Observer {
             public void stateChanged(ChangeEvent e) {
                 model.setAnguloRamas(sliderAnchoRamas.getValue());
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
-                controller.commit();
             }
         };
         sliderAnchoRamas.addChangeListener(listenerAnchoRamas);
