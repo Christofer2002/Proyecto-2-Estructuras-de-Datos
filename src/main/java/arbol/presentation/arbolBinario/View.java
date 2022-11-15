@@ -22,7 +22,7 @@ public class View implements java.util.Observer {
     private JButton btnColorNivel2;
     private JButton btnColorNivel3;
     private JSlider sliderMoverRamas;
-    private JSlider sliderAngulo;
+    private JSlider sliderAnchoRamas;
     private JSlider sliderAltura;
     private JButton btnColorNivel4;
     private JButton btnColorNivel5;
@@ -68,12 +68,8 @@ public class View implements java.util.Observer {
         };
 
         spinnerNiveles.addChangeListener(listener);
-        sliderAngulo.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                model.setAngulo(sliderAngulo.getValue());
-            }
-        });
+
+
         btnColorNivel0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -211,24 +207,33 @@ public class View implements java.util.Observer {
         });
 
 
-
-        sliderAltura.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
+        ChangeListener listenerAltura = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
                 model.setAltura(sliderAltura.getValue());
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
                 controller.commit();
             }
-        });
+        };
 
-        sliderMoverRamas.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
+        sliderAltura.addChangeListener(listenerAltura);
+
+        ChangeListener listenerMoverRamas = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
                 model.setMoverRamas(sliderMoverRamas.getValue());
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
                 controller.commit();
             }
-        });
+        };
+        sliderMoverRamas.addChangeListener(listenerMoverRamas);
+
+        ChangeListener listenerAnchoRamas = new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                model.setAnguloRamas(sliderAnchoRamas.getValue());
+                controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
+                controller.commit();
+            }
+        };
+        sliderAnchoRamas.addChangeListener(listenerAnchoRamas);
     }
     private void initComponents() {
         //SpinnerNiveles max 8

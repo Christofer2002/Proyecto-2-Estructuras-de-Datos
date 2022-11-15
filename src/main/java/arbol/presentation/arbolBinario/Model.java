@@ -15,6 +15,16 @@ public class Model extends java.util.Observable {
 
     DrawTree arbol;
 
+    public int getAnguloRamas() {
+        return anguloRamas;
+    }
+
+    public void setAnguloRamas(int anguloRamas) {
+        this.anguloRamas = anguloRamas;
+    }
+
+    private int anguloRamas = 20;
+
     public double getAltura() {
         return altura;
     }

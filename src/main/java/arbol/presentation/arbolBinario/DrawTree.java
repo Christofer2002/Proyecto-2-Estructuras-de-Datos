@@ -14,9 +14,11 @@ public class DrawTree extends JPanel {
     private boolean entro = false;
     private double moverRamas;
 
+    private int anguloRamas = 15;
+
     private double altura;
 
-    public DrawTree(int puntoInicialX, int puntoInicialY, List<Color> color, int angulo , int profundidad, double altura, double moverRamas) {
+    public DrawTree(int puntoInicialX, int puntoInicialY, List<Color> color, int angulo , int profundidad, double altura, double moverRamas, int anguloRamas) {
         this.puntoInicialX = puntoInicialX;
         this.puntoInicialY = puntoInicialY;
         this.color = color;
@@ -24,6 +26,7 @@ public class DrawTree extends JPanel {
         this.profundidad = profundidad;
         this.altura = altura;
         this.moverRamas = moverRamas;
+        this.anguloRamas = anguloRamas;
     }
 
     public DrawTree(){
@@ -33,6 +36,7 @@ public class DrawTree extends JPanel {
         this.angulo = 0;
         this.profundidad = 0;
         this.altura = 5;
+        this.anguloRamas = 0;
     }
 
     @Override
@@ -54,16 +58,15 @@ public class DrawTree extends JPanel {
             int x2 = puntoInicialX + (int) (Math.cos(Math.toRadians(angulo)) * profundidad * altura);
             int y2 = puntoInicialY + (int) (Math.sin(Math.toRadians(angulo)) * profundidad * altura );
             g.drawLine(puntoInicialX, puntoInicialY, x2, y2);
-            profundidad = 0;
             entro = true;
         }else{
             g.setStroke(new BasicStroke((float) anchoRamas));
             int x2 = puntoInicialX + (int) (Math.cos(Math.toRadians(angulo)) * profundidad * altura + moverRamas);
             int y2 = puntoInicialY + (int) (Math.sin(Math.toRadians(angulo)) * profundidad * altura + moverRamas);
             g.drawLine(puntoInicialX, puntoInicialY, x2, y2);
-            drawTreeRecursive(g, x2, y2, angulo - 28, profundidad - 1, anchoRamas - 0.6, moverRamas);
+            drawTreeRecursive(g, x2, y2, angulo - anguloRamas, profundidad - 1, anchoRamas - 0.6, moverRamas);
             drawTreeRecursive(g, x2, y2, angulo, profundidad - 1, anchoRamas - 0.6, moverRamas);
-            drawTreeRecursive(g, x2, y2, angulo + 28, profundidad - 1, anchoRamas - 0.6, moverRamas);
+            drawTreeRecursive(g, x2, y2, angulo + anguloRamas, profundidad - 1, anchoRamas - 0.6, moverRamas);
         }
 
     }
