@@ -59,6 +59,7 @@ public class DrawTree extends JPanel {
             int y2 = puntoInicialY + (int) (Math.sin(Math.toRadians(angulo)) * profundidad * altura );
             g.drawLine(puntoInicialX, puntoInicialY, x2, y2);
             entro = true;
+
         }else{
             g.setStroke(new BasicStroke((float) anchoRamas));
             int x2 = puntoInicialX + (int) (Math.cos(Math.toRadians(angulo)) * profundidad * altura + moverRamas);
