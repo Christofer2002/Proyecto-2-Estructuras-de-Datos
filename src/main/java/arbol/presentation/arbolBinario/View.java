@@ -40,7 +40,10 @@ public class View implements java.util.Observer {
 
     public void setController(Controller controller) {
         this.controller = controller;
-        listColores = new ArrayList<>();
+        listColores = new ArrayList<>(7);
+        for (int i = 0; i < 8; i++) {
+            listColores.add(i, Color.BLACK);
+        }
         arbol = new DrawTree();
         controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
     }
@@ -74,12 +77,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(0, color);
                 btnColorNivel0.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -90,12 +88,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(1, color);
                 btnColorNivel1.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -106,12 +99,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(2, color);
                 btnColorNivel2.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -122,12 +110,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(3, color);
                 btnColorNivel3.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -138,12 +121,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(4, color);
                 btnColorNivel4.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -154,12 +132,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(5, color);
                 btnColorNivel5.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -170,12 +143,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(6, color);
                 btnColorNivel6.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
@@ -186,12 +154,7 @@ public class View implements java.util.Observer {
             public void actionPerformed(ActionEvent e) {
                 colorChooser = new JColorChooser();
                 Color color = JColorChooser.showDialog(panelColor, "Seleccione un color", Color.BLACK);
-                listColores.add(pos, color);
-                if(listColores.size() < 8){
-                    pos = pos + 1;
-                }else{
-                    pos = 0;
-                }
+                listColores.add(7, color);
                 btnColorNivel7.setBackground(color);
                 controller.drawTree((int) spinnerNiveles.getValue(), arbol, listColores);
             }
